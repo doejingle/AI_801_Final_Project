@@ -1,0 +1,113 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+    <h1 align="center">AI - Wordle</h1>
+
+    <table class="table table-bordered table-striped table-hover">
+      <tbody align="center" style="font-size: 30px;font-weight:bold" class="text-uppercase">
+        <tr>
+          {%for i in range(0,5)%}
+          {%if test_word[i]==session['guess1'][i]%}
+          <td class="table-success">{{ session['guess1'][i] }}</td>
+          {%elif session['guess1'][i]|string() in test_word and session['guess1'][i]|string()!=''%}
+          <td class="table-warning">{{ session['guess1'][i] }}</td>
+          {%else%}
+          <td class="table-secondary">{{ session['guess1'][i] }}</td>
+          {%endif%}
+          {%endfor%}
+        </tr>
+        <tr>
+          {%for i in range(0,5)%}
+          {%if test_word[i]==session['guess2'][i]%}
+          <td class="table-success">{{ session['guess2'][i] }}</td>
+          {%elif session['guess2'][i]|string() in test_word and session['guess2'][i]|string()!=''%}
+          <td class="table-warning">{{ session['guess2'][i] }}</td>
+          {%else%}
+          <td class="table-secondary">{{ session['guess2'][i] }}</td>
+          {%endif%}
+          {%endfor%}
+        </tr>
+        <tr>
+          {%for i in range(0,5)%}
+          {%if test_word[i]==session['guess3'][i]%}
+          <td class="table-success">{{ session['guess3'][i] }}</td>
+          {%elif session['guess3'][i]|string() in test_word and session['guess3'][i]|string()!=''%}
+          <td class="table-warning">{{ session['guess3'][i] }}</td>
+          {%else%}
+          <td class="table-secondary">{{ session['guess3'][i] }}</td>
+          {%endif%}
+          {%endfor%}
+        </tr>
+        <tr>
+          {%for i in range(0,5)%}
+          {%if test_word[i]==session['guess4'][i]%}
+          <td class="table-success">{{ session['guess4'][i] }}</td>
+          {%elif session['guess4'][i]|string() in test_word and session['guess4'][i]|string()!=''%}
+          <td class="table-warning">{{ session['guess4'][i] }}</td>
+          {%else%}
+          <td class="table-secondary">{{ session['guess4'][i] }}</td>
+          {%endif%}
+          {%endfor%}
+        </tr>
+        <tr>
+          {%for i in range(0,5)%}
+          {%if test_word[i]==session['guess5'][i]%}
+          <td class="table-success">{{ session['guess5'][i] }}</td>
+          {%elif session['guess5'][i]|string() in test_word and session['guess5'][i]|string()!=''%}
+          <td class="table-warning">{{ session['guess5'][i] }}</td>
+          {%else%}
+          <td class="table-secondary">{{ session['guess5'][i] }}</td>
+          {%endif%}
+          {%endfor%}
+        </tr>
+        <tr>
+          {%for i in range(0,5)%}
+          {%if test_word[i]==session['guess6'][i]%}
+          <td class="table-success">{{ session['guess6'][i] }}</td>
+          {%elif session['guess3'][i]|string() in test_word and session['guess6'][i]|string()!=''%}
+          <td class="table-warning">{{ session['guess6'][i] }}</td>
+          {%else%}
+          <td class="table-secondary">{{ session['guess6'][i] }}</td>
+          {%endif%}
+          {%endfor%}
+        </tr>
+      </tbody>
+    </table>
+
+    <form  method="POST" style="text-align:center">
+      <div class="form-group">
+        <input
+          type="guess"
+          class="form-control"
+          id="guess"
+          name="guess"
+          placeholder="Guess a 5-Letter Word"
+        />
+      </div>
+      <br />
+      <button type="submit" class="btn btn-primary">Guess!</button>
+    </form>
+    <p></p>
+    <form  method="POST" style="text-align:center">
+      <div class="form-group">
+        <input type="submit" name="guess" value="Clear Guesses" class="btn btn-danger">
+      </div>
+      <br />
+    </form>
+
+
+      <table class="table table-bordered table-striped table-hover">
+      <thead >
+        <tr align="center">
+          <th colspan="5"  style="font-size: 30px;font-weight:bold">TEST WORD</th>
+        </tr>
+      </thead>
+      <tbody align="center" style="font-size: 30px;font-weight:bold" class="text-uppercase">    
+        <tr>
+          {%for i in range(0,5)%}
+          <td>{{ test_word[i] }}</td>
+          {%endfor%}
+        </tr>
+      </tbody>
+    </table>
+
+    {% endblock %}
